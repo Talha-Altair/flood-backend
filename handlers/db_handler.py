@@ -10,6 +10,8 @@ def get_product(product_id):
 
     all_keywords = [translate_text(x) for x in all_keywords]
 
+    all_keywords = [x.lower() for x in all_keywords]
+
     regex_exp = "(" + ")|(".join(all_keywords) + ")"
 
     data = product_data_coll.find({'$or': [
